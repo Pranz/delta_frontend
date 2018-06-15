@@ -1,0 +1,49 @@
+<template>
+  <div class="aktuellt">
+    <h1>Senaste motionerna</h1>
+    <div class="row">
+      <div class="col1">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugiat ab, voluptate aliquam atque ducimus? Voluptate expedita suscipit dicta fugiat, nesciunt optio aut ducimus sit deserunt aliquam ea a nostrum.
+        </p>
+      </div>
+      <div class="col2">
+        <div class="box"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Aktuellt'
+}
+</script>
+
+<style lang="scss" scoped>
+@import '@/styles/mixins/positioning.scss';
+@import '@/styles/color.scss';
+
+.aktuellt {
+  padding-top: 2rem;
+  @include contained();
+  background: $yellow-light;
+  min-height: 50vh;
+  h1 {
+    margin: 0;
+  }
+  p {
+    font-weight: 400;
+  }
+}
+
+.row {
+  @include row(8,5);
+}
+
+.box {
+  height: 400px;
+  background: lighten(desaturate( red, 40), 20);
+}
+
+</style>
