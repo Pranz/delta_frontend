@@ -7,11 +7,7 @@
           <li><router-link to="/historik">Historik</router-link></li>
           <li><router-link to="/minadiskussioner">Mina diskussioner</router-link></li>
           <li><router-link to='/login'>Logga in</router-link></li>
-
         </ul>
-      </div>
-      <div id="footer">
-        <router-link to='/about'>Om oss</router-link>
       </div>
     </div>
 </template>
@@ -69,15 +65,5 @@ export default {
 #body {
    padding:10px;
    padding-bottom:60px;   /* Height of the footer */
-}
-#footer {
-  position: fixed;
-  vertical-align: bottom;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: white;
-  color: white;
-  text-align: center;
 }
 </style>

@@ -3,7 +3,6 @@
     <h6>Om oss</h6>
     <p>Lite kort intro och kontaktuppgifter</p>
   </div>
-</div>
 </template>
 <script>
 export default {
