@@ -6,17 +6,26 @@
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugiat ab, voluptate aliquam atque ducimus? Voluptate expedita suscipit dicta fugiat, nesciunt optio aut ducimus sit deserunt aliquam ea a nostrum.
         </p>
+        <shortpost/>
+        <p>Hej</p>
       </div>
       <div class="col2">
         <div class="box"></div>
       </div>
     </div>
+
   </div>
+
 </template>
 
 <script>
+import ShortPost from './ShortPost.vue'
+
 export default {
-  name: 'Aktuellt'
+  name: 'Aktuellt',
+  components: {
+    ShortPost
+  }
 }
 </script>
 
