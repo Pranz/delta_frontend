@@ -2,10 +2,10 @@
   <div id="navbar">
     <div class="container">
       <ul class="links">
-        <li>Aktuellt</li>
-        <li>Historik</li>
-        <li>Mina diskussioner</li>
-        <li>Logga ut</li>
+        <li><router-link to="/">Aktuellt</router-link></li>
+        <li><router-link to="/historik">Historik</router-link></li>
+        <li><router-link to="/minadiskussioner">Mina diskussioner</router-link></li>
+        <li><router-link to='/login'>Logga in</router-link></li>
       </ul>
     </div>
   </div>
@@ -44,6 +44,10 @@ export default {
       padding: 1rem;
       font-weight: 400;
     }
+  }
+  router-link {
+    text-decoration: none;
+    color: #555555;
   }
 }
 
