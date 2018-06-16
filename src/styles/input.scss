@@ -1,0 +1,28 @@
+@import '@/styles/color.scss';
+
+
+button {
+  display: inline-block;
+  text-decoration-color: $text-color;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 100px;
+  color: $text-color;
+  background-color: $green;
+  border-style: solid;
+  border: none;
+}
+button:hover {
+  background-color: $dark-green;
+}
+
+form input {
+  color: $text-color;
+  border-radius: 100px;
+  border-style:solid;
+  text-align: center;
+  background-color: #E3E3E3;
+  padding: 5px;
+}
