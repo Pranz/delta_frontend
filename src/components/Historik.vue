@@ -11,8 +11,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '@/styles/mixins/positioning.scss';
+@import '@/styles/color.scss';
+
 .historik {
   padding-top: 2rem;
+  padding-bottom: 2rem;
+  @include contained();
   min-height: 50vh;
   h1 {
     margin: 0;

@@ -1,14 +1,15 @@
 <template>
-  <div id="navbar">
-    <div class="container">
-      <ul class="links">
-        <li><router-link to="/">Aktuellt</router-link></li>
-        <li><router-link to="/historik">Historik</router-link></li>
-        <li><router-link to="/minadiskussioner">Mina diskussioner</router-link></li>
-        <li><router-link to='/login'>Logga in</router-link></li>
-      </ul>
+    <div id="navbar">
+      <div class="container" >
+        <img src="@/assets/logoSVG.svg" alt="logo" id="logo"/>
+        <ul class="links">
+          <li><router-link to="/">Aktuellt</router-link></li>
+          <li><router-link to="/historik">Historik</router-link></li>
+          <li><router-link to="/minadiskussioner">Mina diskussioner</router-link></li>
+          <li><router-link to='/login'>Logga in</router-link></li>
+        </ul>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -44,11 +45,25 @@ export default {
       padding: 1rem;
       font-weight: 400;
     }
+    li a {
+      text-decoration: none;
+      color: #2C3E50;
+    }
+    li a:hover {
+      font-weight: bold;
+    }
   }
   router-link {
     text-decoration: none;
     color: #555555;
   }
 }
-
+#logo {
+  width: 20%;
+  height: width;
+}
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
 </style>
