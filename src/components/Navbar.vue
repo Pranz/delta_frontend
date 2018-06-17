@@ -1,7 +1,7 @@
 <template>
     <div id="navbar">
       <div class="container" >
-        <img src="@/assets/LogoSVG.svg" alt="logo" id="logo"/>
+        <img src="@/assets/logoSVG.svg" alt="logo" id="logo"/>
         <ul class="links">
           <li><router-link to="/">Aktuellt</router-link></li>
           <li><router-link to="/historik">Historik</router-link></li>
