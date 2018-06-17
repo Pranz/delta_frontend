@@ -45,6 +45,7 @@ export default {
 
 #signup {
   text-align: center;
+  padding-bottom: 2rem;
 }
 #container {
   overflow:auto;
