@@ -25,8 +25,6 @@ export default {
       var email = document.getElementById('email')
       var password = document.getElementById('psw')
       alert('Hello')
-      console.write('email: ' + email)
-      console.write('psw: ' + password)
     }
   }
 }
