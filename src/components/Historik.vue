@@ -16,6 +16,7 @@ export default {
 
 .historik {
   padding-top: 2rem;
+  padding-bottom: 2rem;
   @include contained();
   min-height: 50vh;
   h1 {

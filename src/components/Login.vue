@@ -38,5 +38,6 @@ export default {
 #login {
   text-align: center;
   display: inline-block;
+  padding-bottom: 2rem;
 }
 </style>
