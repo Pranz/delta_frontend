@@ -8,8 +8,9 @@
         <label for="body">Innehåll</label><br>
         <textarea id="body" placeholder="Skriv ditt inlägg..."></textarea><br><br>
         <label for="body">Taggar</label><br>
-        <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.enter="addTag()"/><br>
-        <div id="smallText">Var vänlig separera taggarna med kommatecken</div><br>
+        <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.space="addTag()"/>
+        <span id="addedTags"></span><br>
+        <div id="smallText">Var vänlig separera taggarna med mellanslag</div><br>
         <button type="submit" v-on:click="makePost()">Publicera</button><br>
       </form>
       <div id="box">
@@ -27,7 +28,12 @@ export default {
   name: 'MakePost',
   methods: {
     addTag: function () {
-      alert('make tag')
+      if (document.getElementById('addedTags').innerHTML.length == 0) {
+        document.getElementById('addedTags').innerHTML = document.getElementById('tags').value
+      } else {
+        document.getElementById('addedTags').innerHTML = document.getElementById('addedTags').innerHTML + ', ' + document.getElementById('tags').value
+      }
+      document.getElementById('tags').value = ''
     },
     makePost: function () {
       alert('makepost')
