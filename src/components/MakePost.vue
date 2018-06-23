@@ -8,7 +8,8 @@
         <label for="body">Innehåll</label><br>
         <textarea id="body" placeholder="Skriv ditt inlägg..."></textarea><br><br>
         <label for="body">Taggar</label><br>
-        <input type="text" id="tags" placeholder="Ex. #miljö, #undervisning" v-on:keyup.enter="addTag()"/><br><br>
+        <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.enter="addTag()"/><br>
+        <div id="smallText">Var vänlig separera taggarna med kommatecken</div><br>
         <button type="submit" v-on:click="makePost()">Publicera</button><br>
       </form>
       <div id="box">
@@ -25,11 +26,11 @@
 export default {
   name: 'MakePost',
   methods: {
-    makePost: function () {
-      alert('makepost')
-    },
     addTag: function () {
       alert('make tag')
+    },
+    makePost: function () {
+      alert('makepost')
     }
   }
 }
@@ -78,6 +79,8 @@ form {
 
 input[type=text] {
   color: $text-color;
+  font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
+  font-size: 14px;
   border-radius: 5px;
   border-style:solid;
   text-align: left;
@@ -88,10 +91,18 @@ input[type=text] {
 }
 textarea {
   color: $text-color;
+  font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
+  font-size: 14px;
   border-radius: 5px;
   border-style:solid;
   text-align: left;
   background-color: #E3E3E3;
   margin: auto;
+  min-width: 400px;
+  min-height: 300px;
+}
+
+#smallText {
+  font-size: 12px;
 }
 </style>

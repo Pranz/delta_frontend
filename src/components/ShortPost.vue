@@ -37,7 +37,10 @@ export default {
   display: inline-block;
   border-radius: 5px;
   padding-left: 1rem;
-  background-color: transparentize(white, 0.4)
+  background-color: transparentize(white, 0.4);
+  border-style: solid;
+  border-color: $warm-grey;
+  margin-right: 20px;
 }
 
 #readmore:hover {

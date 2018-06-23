@@ -35,7 +35,7 @@ export default {
 .aktuellt {
   padding-top: 2rem;
   @include contained();
-  background: $yellow-light;
+  background: white;
   min-height: 50vh;
   h1 {
     margin: 0;
