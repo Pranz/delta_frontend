@@ -4,7 +4,7 @@
         <img src="@/assets/logoSVG.svg" alt="logo" id="logo"/>
         <ul class="links">
           <li><router-link to="/">Aktuellt</router-link></li>
-          <li><router-link to="/historik">Historik</router-link></li>
+          <li><router-link to="/makepost">Skapa inlägg</router-link></li>
           <li><router-link to="/minadiskussioner">Mina diskussioner</router-link></li>
           <li><router-link to='/login'>Logga in</router-link></li>
         </ul>

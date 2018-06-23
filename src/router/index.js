@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Aktuellt from '@/components/Aktuellt.vue'
 import Login from '@/components/Login.vue'
 import Signup from '@/components/Signup.vue'
-import Historik from '@/components/Historik.vue'
+import MakePost from '@/components/MakePost.vue'
 import MinaDiskussioner from '@/components/MinaDiskussioner.vue'
 import ShortPost from '@/components/ShortPost.vue'
 import About from '@/components/About.vue'
@@ -28,9 +28,9 @@ export default new Router({
       component: Signup
     },
     {
-      path: '/historik',
-      name: 'Historik',
-      component: Historik
+      path: '/makepost',
+      name: 'MakePost',
+      component: MakePost
     },
     {
       path: '/minadiskussioner',
