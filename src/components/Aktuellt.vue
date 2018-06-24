@@ -3,9 +3,6 @@
     <h1>Nya motioner och förslag</h1>
     <div class="row">
       <div class="col1">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugiat ab, voluptate aliquam atque ducimus? Voluptate expedita suscipit dicta fugiat, nesciunt optio aut ducimus sit deserunt aliquam ea a nostrum.
-        </p>
         <ShortPost></ShortPost>
       </div>
       <div class="col2">
@@ -35,7 +32,7 @@ export default {
 .aktuellt {
   padding-top: 2rem;
   @include contained();
-  background: $yellow-light;
+  background: white;
   min-height: 50vh;
   h1 {
     margin: 0;
