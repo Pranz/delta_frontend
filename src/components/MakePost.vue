@@ -4,31 +4,33 @@
     <div id="container">
       <form>
         <label for="title">Titel</label><br>
-        <input type="text" id="title" placeholder="Skriv en titel..."/><br><br>
+        <input type="text" id="title" placeholder="Skriv en titel..." required/><br><br>
         <label for="body">Innehåll</label><br>
-        <textarea id="body" placeholder="Skriv ditt inlägg..."></textarea><br><br>
+        <textarea id="body" placeholder="Skriv ditt inlägg..." required></textarea><br><br>
         <label for="body">Taggar</label><br>
         <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.space="addTag()"/>
         <span id="addedTags"></span><br>
         <div id="smallText">Var vänlig separera taggarna med mellanslag</div><br>
         <button type="submit" v-on:click="makePost()">Publicera</button><br>
       </form>
-      <div id="box">
-        <p>Här kan du skapa egna inlägg om ämnen som du tycker är viktiga.
-          Se till att du taggar ditt inlägg med relevanta taggar för att andra
-          användare ska enklare kunna hitta ditt inlägg.
-        </p>
-      </div>
+      <InfoBubble message="Här kan du skapa egna inlägg om ämnen som du tycker är viktiga.
+        Se till att du taggar ditt inlägg med relevanta taggar för att andra
+        användare ska enklare kunna hitta ditt inlägg."></InfoBubble>
     </div>
   </div>
 </template>
 
 <script>
+import InfoBubble from './InfoBubble.vue'
+
 export default {
   name: 'MakePost',
+  components: {
+    InfoBubble
+  },
   methods: {
     addTag: function () {
-      if (document.getElementById('addedTags').innerHTML.length == 0) {
+      if (document.getElementById('addedTags').innerHTML.length === 0) {
         document.getElementById('addedTags').innerHTML = document.getElementById('tags').value
       } else {
         document.getElementById('addedTags').innerHTML = document.getElementById('addedTags').innerHTML + ', ' + document.getElementById('tags').value
@@ -36,7 +38,15 @@ export default {
       document.getElementById('tags').value = ''
     },
     makePost: function () {
-      alert('makepost')
+      var title = document.getElementById('title').value
+      var body = document.getElementById('body').value
+      var tags = document.getElementById('addedTags').innerHTML
+
+      if (title.length === 0 || body.length === 0) {
+        alert('Var vänlig fyll i titel och innehåll')
+      } else {
+        alert(title + ' ' + body + tags)
+      }
     }
   }
 }
@@ -67,18 +77,7 @@ export default {
   width: 80%;
   padding-bottom: 2rem;
 }
-#box {
-  float: right;
-  width: 50%;
-  background-color: $light-blue;
-  border-radius: 10px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 300px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+
 form {
   float: left;
 }
@@ -102,6 +101,7 @@ textarea {
   border-radius: 5px;
   border-style:solid;
   text-align: left;
+  padding: 5px;
   background-color: #E3E3E3;
   margin: auto;
   min-width: 400px;

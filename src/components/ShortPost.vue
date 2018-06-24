@@ -1,10 +1,10 @@
 <template>
   <div id="container" align="center">
   <div id="shortpost">
-    <h2>Titel</h2>
-    <p>Motion till riksdagen 2017/18:4201 av Roland Utbult m.fl. KD med anledning av prop. 2017/18:261 Långsiktig finansiering och stärkt oberoende för public service Förslag till riksdagsbeslut Riksdagen antar regeringens förslag till beslut med ändringen att de sändningstillstånd som utfärdas närmast efter ikraftträdandet </p>
-    <span id="readmore" v-on:click="ReadMore()">Läs mer...</span><br>
-    <DeltaButton></DeltaButton>
+    <h2>{{title}}</h2>
+    <p>{{body}}</p>
+    <button id="readmore" v-on:click="ReadMore()">Läs mer...</button><br>
+    <DeltaButton deltas="deltas"></DeltaButton>
   </div>
 </div>
 </template>
@@ -16,6 +16,7 @@ export default {
   components: {
     DeltaButton
   },
+  props: ['title', 'body', 'id', 'deltas'],
   methods: {
     ReadMore: function () {
       alert('connect link to detailed view')
@@ -43,7 +44,9 @@ export default {
   margin-right: 20px;
 }
 
-#readmore:hover {
-  text-decoration: underline;
+#readmore {
+  position: relative;
+  float: right;
+  margin-right: 5px;
 }
 </style>

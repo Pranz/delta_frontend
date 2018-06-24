@@ -3,10 +3,8 @@
     <h1>Nya motioner och förslag</h1>
     <div class="row">
       <div class="col1">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugiat ab, voluptate aliquam atque ducimus? Voluptate expedita suscipit dicta fugiat, nesciunt optio aut ducimus sit deserunt aliquam ea a nostrum.
-        </p>
-        <ShortPost></ShortPost>
+        <ShortPost title="med anledning av prop. 2017/18:266 En ny regional planering" body="Riksdagen ställer sig bakom det som anförs i motionen om en kontinuerlig dialog för att göra det möjligt att inkludera fler län i lagstiftningen om regional fysisk planering och tillkännager detta för regeringen.
+    Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen."></ShortPost>
       </div>
       <div class="col2">
         <div class="box"></div>

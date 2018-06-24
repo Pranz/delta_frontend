@@ -7,6 +7,7 @@
 <script>
 export default {
   name: 'DeltaButton',
+  props: ['deltas'],
   methods: {
     Like: function () {
       document.getElementById('likes').innerHTML = parseInt(document.getElementById('likes').innerHTML) + 1
