@@ -1,6 +1,6 @@
 <template>
   <div id="container" align="center">
-  <div id="shortpost">
+  <div id="post">
     <h2>{{ title }}</h2>
     <small>{{ date }}</small>
     <p>{{ body }}</p>
@@ -9,21 +9,15 @@
 </template>
 <script>
 export default {
-  name: 'ShortPost',
-  props: ['title', 'body', 'date'],
-  methods: {
-    firstParagrah (text) {
-      // parse first paragraph
-      return text
-    }
-  }
+  name: 'Post',
+  props: ['title', 'body', 'date']
 }
 </script>
 <style scoped lang="scss">
 @import '@/styles/mixins/positioning.scss';
 @import '@/styles/color.scss';
 
-#shortpost {
+#post {
   text-align: left;
   display: inline-block;
 }

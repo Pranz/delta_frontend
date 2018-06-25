@@ -1,20 +1,14 @@
 <template>
   <div class="aktuellt">
-    <h1>Nya motioner och förslag</h1>
-    <div class="row">
-      <div class="col1">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugiat ab, voluptate aliquam atque ducimus? Voluptate expedita suscipit dicta fugiat, nesciunt optio aut ducimus sit deserunt aliquam ea a nostrum.
-        </p>
-        <ShortPost></ShortPost>
-      </div>
-      <div class="col2">
-        <div class="box"></div>
-      </div>
+    <h1>{{ hello }}</h1>
+    <div class="row" v-for="item in items" :key="item.id">
+        <ShortPost
+          v-bind:title=item.title
+          v-bind:body=item.body
+          v-binddate=item.date>
+        </ShortPost>
     </div>
-
   </div>
-
 </template>
 
 <script>
@@ -24,6 +18,17 @@ export default {
   name: 'Aktuellt',
   components: {
     ShortPost
+  },
+  data () {
+    return {
+      hello: 'hi!',
+      items: [{
+        id: 0,
+        title: 'Motionera mera!',
+        body: 'Motion är bra för hälsan.',
+        date: 'xxx' }
+      ]
+    }
   }
 }
 </script>
@@ -47,11 +52,6 @@ export default {
 
 .row {
   @include row(8,5);
-}
-
-.box {
-  height: 400px;
-  background: lighten(desaturate( red, 40), 20);
 }
 
 </style>
