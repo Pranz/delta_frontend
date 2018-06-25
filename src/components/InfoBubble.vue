@@ -1,7 +1,7 @@
 <template>
   <div id="parent">
     <div id="box" v-if="visible">
-      <div id="closeBtn" v-on:click="close()">X</div>
+      <div id="closeBtn" v-on:click="visible=false">X</div>
       <p>{{message}}</p>
     </div>
   </div>

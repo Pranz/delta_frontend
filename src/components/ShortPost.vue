@@ -4,7 +4,7 @@
     <h2>{{title}}</h2>
     <p>{{body}}</p>
     <button id="readmore" v-on:click="ReadMore()">Läs mer...</button><br>
-    <DeltaButton deltas="deltas"></DeltaButton>
+    <DeltaButton deltas=5 postId="postId" userId="userId"></DeltaButton>
   </div>
 </div>
 </template>
@@ -16,13 +16,13 @@ export default {
   components: {
     DeltaButton
   },
-  props: ['title', 'body', 'id', 'deltas'],
+  props: ['title', 'body', 'postId', 'userId'],
+  created: function () {
+
+  },
   methods: {
     ReadMore: function () {
-      alert('connect link to detailed view')
-    },
-    Like: function () {
-      document.getElementById('likes').innerHTML = parseInt(document.getElementById('likes').innerHTML) + 1
+      alert('connect link to detailed view using postId')
     }
   }
 }

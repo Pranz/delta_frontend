@@ -5,6 +5,8 @@
       <div class="col1">
         <ShortPost title="med anledning av prop. 2017/18:266 En ny regional planering" body="Riksdagen ställer sig bakom det som anförs i motionen om en kontinuerlig dialog för att göra det möjligt att inkludera fler län i lagstiftningen om regional fysisk planering och tillkännager detta för regeringen.
     Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen."></ShortPost>
+    <ShortPost title="med anledning av prop. 2017/18:266 En ny regional planering" body="Riksdagen ställer sig bakom det som anförs i motionen om en kontinuerlig dialog för att göra det möjligt att inkludera fler län i lagstiftningen om regional fysisk planering och tillkännager detta för regeringen.
+Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen."></ShortPost>
       </div>
       <div class="col2">
         <div class="box"></div>
@@ -49,7 +51,7 @@ export default {
 
 .box {
   height: 400px;
-  background: lighten(desaturate( red, 40), 20);
+  background: $warm-grey;
 }
 
 </style>

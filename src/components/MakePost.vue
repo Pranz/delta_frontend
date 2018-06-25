@@ -4,18 +4,18 @@
     <div id="container">
       <form>
         <label for="title">Titel</label><br>
-        <input type="text" id="title" placeholder="Skriv en titel..." required/><br><br>
+        <input type="text" id="title" placeholder="Skriv en titel..." required v-model="title"/><br><br>
         <label for="body">Innehåll</label><br>
         <textarea id="body" placeholder="Skriv ditt inlägg..." required></textarea><br><br>
         <label for="body">Taggar</label><br>
-        <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.space="addTag()"/>
-        <span id="addedTags"></span><br>
+        <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.space="addTag()" v-model="atag"/>
+        <span id="addedTags">{{addedTags}}</span><br>
         <div id="smallText">Var vänlig separera taggarna med mellanslag</div><br>
         <button type="submit" v-on:click="makePost()">Publicera</button><br>
       </form>
       <InfoBubble message="Här kan du skapa egna inlägg om ämnen som du tycker är viktiga.
         Se till att du taggar ditt inlägg med relevanta taggar för att andra
-        användare ska enklare kunna hitta ditt inlägg."></InfoBubble>
+        användare ska enklare kunna hitta ditt inlägg." visible="true"></InfoBubble>
     </div>
   </div>
 </template>
@@ -28,25 +28,30 @@ export default {
   components: {
     InfoBubble
   },
+  data: function () {
+    return {
+      title: '',
+      body: '',
+      atag: '',
+      addedTags: ''
+    }
+  },
   methods: {
     addTag: function () {
       if (document.getElementById('addedTags').innerHTML.length === 0) {
-        document.getElementById('addedTags').innerHTML = document.getElementById('tags').value
+        this.addedTags = this.atag
       } else {
-        document.getElementById('addedTags').innerHTML = document.getElementById('addedTags').innerHTML + ', ' + document.getElementById('tags').value
+        this.addedTags = this.addedTags + ', ' + this.atag
       }
-      document.getElementById('tags').value = ''
+      this.atag=''
     },
     makePost: function () {
-      var title = document.getElementById('title').value
-      var body = document.getElementById('body').value
       var tags = document.getElementById('addedTags').innerHTML
-
-      if (title.length === 0 || body.length === 0) {
+      if (this.title.length === 0 || this.body.length === 0) {
         alert('Var vänlig fyll i titel och innehåll')
       } else {
         var date = Date.now()
-        alert(title + ' ' + body + tags + date)
+        alert(this.title + ' ' + this.body + this.addedTags + date)
       }
     }
   }
