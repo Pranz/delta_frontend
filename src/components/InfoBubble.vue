@@ -1,6 +1,6 @@
 <template>
   <div id="parent">
-    <div id="box">
+    <div id="box" v-if="visible">
       <div id="closeBtn" v-on:click="close()">X</div>
       <p>{{message}}</p>
     </div>
@@ -9,10 +9,10 @@
 <script>
 export default {
   name: 'MakePost',
-  props: ['message'],
+  props: ['message', 'visible'],
   methods: {
     close: function () {
-      document.getElementById('parent').removeChild(document.getElementById('box'))
+      this.visible = false
     }
   }
 }
