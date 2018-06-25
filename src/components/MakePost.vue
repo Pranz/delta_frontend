@@ -38,15 +38,14 @@ export default {
   },
   methods: {
     addTag: function () {
-      if (document.getElementById('addedTags').innerHTML.length === 0) {
+      if (this.addedTags.length === 0) {
         this.addedTags = this.atag
       } else {
         this.addedTags = this.addedTags + ', ' + this.atag
       }
-      this.atag=''
+      this.atag = ''
     },
     makePost: function () {
-      var tags = document.getElementById('addedTags').innerHTML
       if (this.title.length === 0 || this.body.length === 0) {
         alert('Var vänlig fyll i titel och innehåll')
       } else {
