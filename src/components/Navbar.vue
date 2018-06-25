@@ -22,7 +22,7 @@ export default {
 @import '../styles/color.scss';
 
 #navbar {
-  height: 300px;
+  height: 200px;
   background: $yellow;
   .container {
     display: flex;
