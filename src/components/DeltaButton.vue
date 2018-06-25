@@ -1,16 +1,25 @@
 <template>
   <span>
     <span id="likeButton" v-on:click="Like()"><img src="@/assets/deltaSVG.svg" alt="delta" id="delta" width="20px"/></span>
-    <span id="likes">0</span>
+    <span id="likes">{{likes}}</span>
   </span>
 </template>
 <script>
 export default {
   name: 'DeltaButton',
-  props: ['deltas'],
+  data () {
+    return {
+      likes: 0
+    }
+  },
+  props: ['deltas', 'postId', 'userID'],
+  created: function () {
+    //  this doesn't work??? likes = deltas
+  },
   methods: {
     Like: function () {
-      document.getElementById('likes').innerHTML = parseInt(document.getElementById('likes').innerHTML) + 1
+      this.likes++
+      //  update database using id prop
     }
   }
 }
