@@ -1,17 +1,15 @@
 <template>
   <div class="aktuellt">
-    <h1>{{ hello }}</h1>
     <div class="row" v-for="item in items" :key="item.id">
         <ShortPost
-          v-bind:title=item.title
-          v-bind:body=item.body
-          v-binddate=item.date>
+          v-bind:post=item>
         </ShortPost>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import ShortPost from './ShortPost.vue'
 
 export default {
@@ -21,7 +19,7 @@ export default {
   },
   data () {
     return {
-      hello: 'hi!',
+      posts: [],
       items: [{
         id: 0,
         title: 'Motionera mera!',
@@ -29,6 +27,13 @@ export default {
         date: 'xxx' }
       ]
     }
+  },
+  mounted () {
+    axios
+      .get('https://localhost:5000/posts')
+      .then(resp => resp.array.forEach(post => {
+        this.posts.push(post)
+      }))
   }
 }
 </script>
