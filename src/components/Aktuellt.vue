@@ -4,9 +4,9 @@
     <div class="row">
       <div class="col1">
         <ShortPost title="med anledning av prop. 2017/18:266 En ny regional planering" body="Riksdagen ställer sig bakom det som anförs i motionen om en kontinuerlig dialog för att göra det möjligt att inkludera fler län i lagstiftningen om regional fysisk planering och tillkännager detta för regeringen.
-    Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen."></ShortPost>
+    Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen." id="101"></ShortPost>
     <ShortPost title="med anledning av prop. 2017/18:266 En ny regional planering" body="Riksdagen ställer sig bakom det som anförs i motionen om en kontinuerlig dialog för att göra det möjligt att inkludera fler län i lagstiftningen om regional fysisk planering och tillkännager detta för regeringen.
-Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen."></ShortPost>
+Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen." id="100"></ShortPost>
       </div>
       <div class="col2">
         <div class="box"></div>

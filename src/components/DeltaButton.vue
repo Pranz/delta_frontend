@@ -9,13 +9,10 @@ export default {
   name: 'DeltaButton',
   data () {
     return {
-      likes: 0
+      likes: this.deltas
     }
   },
   props: ['deltas', 'postId', 'userID'],
-  created: function () {
-    //  this doesn't work??? likes = deltas
-  },
   methods: {
     Like: function () {
       this.likes++
