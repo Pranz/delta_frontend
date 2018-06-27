@@ -46,5 +46,6 @@ export default {
   position: relative;
   float: right;
   margin-right: 5px;
+  margin-bottom: 10px;
 }
 </style>

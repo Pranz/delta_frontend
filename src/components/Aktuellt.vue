@@ -7,7 +7,7 @@
         <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost><br>
       </div>
       <div class="col2">
-        <div class="box" id="box"></div>
+        <div class="box" id="box" v-if="false"></div>
       </div>
     </div>
 
