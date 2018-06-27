@@ -3,11 +3,12 @@
     <div id="shortpost">
       <h2>{{title}}</h2>
       <p>{{body}}</p>
-      <router-link :to="{ name: 'DetailedView', params: {title: title } }"><button id="readmore" v-on:click="ReadMore()">Läs mer...</button></router-link><br>
-      <DeltaButton deltas=5 postId="postId" userId="userId"></DeltaButton>
+      <button id="readmore" v-on:click="ReadMore()">Läs mer...</button>
+      <DeltaButton postId="postId" userId="userId"></DeltaButton>
     </div>
   </div>
 </template>
+
 <script>
 import DeltaButton from './DeltaButton.vue'
 import DetailedView from './DetailedView.vue'
@@ -21,11 +22,6 @@ export default {
   props: ['title', 'body', 'postId', 'userId'],
   created: function () {
 
-  },
-  methods: {
-    ReadMore: function () {
-      alert('connect link to detailed view using postId')
-    }
   }
 }
 

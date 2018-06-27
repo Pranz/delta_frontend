@@ -1,6 +1,6 @@
 <template>
   <div class="aktuellt">
-    <h1>Nya motioner och förslag</h1>
+    <h1>Nya motioner och förslag</h1><br>
     <div class="row">
       <div class="col1" v-for="post in posts" :key="post.id">
         <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost><br>
@@ -25,12 +25,13 @@ export default {
   data: function () {
     return {
       posts: [
-        {id: '101',
-        title: 'med anledning av prop. 2017/18:266 En ny regional planering',
-        body: 'Regional planering innebär att kommunerna kan få utökat stöd och kompetens vid planering vilket framför allt de mindre kommunerna, varifrån arbetspendling ofta sker, har behov av. En regional översiktsplanering ska samtidigt fortfarande innebära att beslutanderätten ligger på kommunal nivå...',
-        motionsId: 'Motion 2017/18:4204',
-        author: 'Roger Hedlund och Mikael Eskilandersson (båda SD)',
-        tags: ['arbetspendling', 'regional']
+        {
+          id: '101',
+          title: 'med anledning av prop. 2017/18:266 En ny regional planering',
+          body: 'Regional planering innebär att kommunerna kan få utökat stöd och kompetens vid planering vilket framför allt de mindre kommunerna, varifrån arbetspendling ofta sker, har behov av. En regional översiktsplanering ska samtidigt fortfarande innebära att beslutanderätten ligger på kommunal nivå...',
+          motionsId: 'Motion 2017/18:4204',
+          author: 'Roger Hedlund och Mikael Eskilandersson (båda SD)',
+          tags: ['arbetspendling', 'regional']
         }
       ]
     }
