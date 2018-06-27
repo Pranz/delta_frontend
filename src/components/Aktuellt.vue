@@ -2,14 +2,12 @@
   <div class="aktuellt">
     <h1>Nya motioner och förslag</h1>
     <div class="row">
-      <div class="col1">
-        <ShortPost title="med anledning av prop. 2017/18:266 En ny regional planering" body="Riksdagen ställer sig bakom det som anförs i motionen om en kontinuerlig dialog för att göra det möjligt att inkludera fler län i lagstiftningen om regional fysisk planering och tillkännager detta för regeringen.
-    Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen." id="101"></ShortPost>
-    <ShortPost title="med anledning av prop. 2017/18:266 En ny regional planering" body="Riksdagen ställer sig bakom det som anförs i motionen om en kontinuerlig dialog för att göra det möjligt att inkludera fler län i lagstiftningen om regional fysisk planering och tillkännager detta för regeringen.
-Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkännager detta för regeringen." id="100"></ShortPost>
+      <div class="col1" v-for="post in posts" :key="post.id">
+        <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost><br>
+        <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost><br>
       </div>
       <div class="col2">
-        <div class="box"></div>
+        <div class="box" id="box"></div>
       </div>
     </div>
 
@@ -19,11 +17,32 @@ Riksdagen ställer sig bakom det som anförs i motionen om cyklism och tillkänn
 
 <script>
 import ShortPost from './ShortPost.vue'
+import DetailedView from './DetailedView.vue'
 
+// get short versions of posts from database with (id, title, body, tags)
 export default {
   name: 'Aktuellt',
+  data: function () {
+    return {
+      posts: [
+        {id: '101',
+        title: 'med anledning av prop. 2017/18:266 En ny regional planering',
+        body: 'Regional planering innebär att kommunerna kan få utökat stöd och kompetens vid planering vilket framför allt de mindre kommunerna, varifrån arbetspendling ofta sker, har behov av. En regional översiktsplanering ska samtidigt fortfarande innebära att beslutanderätten ligger på kommunal nivå...',
+        motionsId: 'Motion 2017/18:4204',
+        author: 'Roger Hedlund och Mikael Eskilandersson (båda SD)',
+        tags: ['arbetspendling', 'regional']
+        }
+      ]
+    }
+  },
   components: {
-    ShortPost
+    ShortPost,
+    DetailedView
+  },
+  methods: {
+    readMore: function (id) {
+      alert(id)
+    }
   }
 }
 </script>
