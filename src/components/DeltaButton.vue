@@ -4,9 +4,9 @@
     <span id="value">{{likes}}</span>
     <span id="commentIcon"><img src="@/assets/commentSVG.svg" alt="comments" id="delta"/></span>
     <span id="value">{{comments}}</span><br><br>
-    <span id="tags" v-for="tag in tags">
+    <div id="tags" v-for="tag in tags">
       <span id="tag">{{tag}}</span>
-    </span>
+    </div>
   </span>
 </template>
 <script>
@@ -16,7 +16,7 @@ export default {
     return {
       likes: parseInt(16),
       comments: parseInt(125),
-      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket']
+      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket', 'arbetspendling']
     }
   },
   props: ['postId', 'userID'],
@@ -56,6 +56,8 @@ export default {
   width: inherit;
   word-wrap: normal;
   margin-bottom: 5px;
+  float: left;
+  display: block;
 }
 
 #tag {
@@ -63,5 +65,6 @@ export default {
   background-color: $warm-grey;
   border-radius: 4px;
   padding: 4px;
+  word-wrap: break-word;
 }
 </style>
