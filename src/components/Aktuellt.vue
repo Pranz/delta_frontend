@@ -10,12 +10,11 @@
         <div class="box" id="box" v-if="false"></div>
       </div>
     </div>
-
   </div>
-
 </template>
 
 <script>
+import axios from 'axios'
 import ShortPost from './ShortPost.vue'
 import DetailedView from './DetailedView.vue'
 

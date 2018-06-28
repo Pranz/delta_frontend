@@ -48,4 +48,17 @@ export default {
   margin-right: 5px;
   margin-bottom: 10px;
 }
+
+#shortpost:hover {
+  background-color: bisque;
+}
+
+h2:hover {
+  color: cornflowerblue;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
 </style>
