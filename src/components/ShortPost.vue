@@ -39,7 +39,7 @@ export default {
   background-color: transparentize(white, 0.4);
   border-style: solid;
   border-color: $warm-grey;
-  margin-right: 20px;
+  margin: 20px;
 }
 
 #readmore {
@@ -47,18 +47,5 @@ export default {
   float: right;
   margin-right: 5px;
   margin-bottom: 10px;
-}
-
-#shortpost:hover {
-  background-color: bisque;
-}
-
-h2:hover {
-  color: cornflowerblue;
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
 }
 </style>

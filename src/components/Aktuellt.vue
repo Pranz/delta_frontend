@@ -3,8 +3,7 @@
     <h1>Nya motioner och förslag</h1><br>
     <div class="row">
       <div class="col1" v-for="post in posts" :key="post.id">
-        <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost><br>
-        <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost><br>
+        <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost>
       </div>
       <div class="col2">
         <div class="box" id="box" v-if="false"></div>
@@ -43,6 +42,13 @@ export default {
     readMore: function (id) {
       alert(id)
     }
+  },
+  mounted () {
+    axios
+      .get('https://localhost:5000/posts')
+      .then(resp => resp.array.forEach(post => {
+        this.posts.push(post)
+      }))
   }
 }
 </script>
