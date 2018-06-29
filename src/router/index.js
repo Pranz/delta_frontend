@@ -7,6 +7,7 @@ import MakePost from '@/components/MakePost.vue'
 import MinaDiskussioner from '@/components/MinaDiskussioner.vue'
 import ShortPost from '@/components/ShortPost.vue'
 import About from '@/components/About.vue'
+import Post from '@/components/Post.vue'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/shortpost',
       name: 'ShortPost',
       component: ShortPost
+    },
+    {
+      path: '/post/:id',
+      name: 'Post',
+      component: Post
     },
     {
       path: '/about',

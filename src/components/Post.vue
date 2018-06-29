@@ -1,16 +1,13 @@
 <template>
   <div id="container" align="center">
   <div id="post">
-    <h2>{{ title }}</h2>
-    <small>{{ date }}</small>
-    <p>{{ body }}</p>
+    hello wrold
   </div>
 </div>
 </template>
 <script>
 export default {
-  name: 'Post',
-  props: ['title', 'body', 'date']
+  name: 'Post'
 }
 </script>
 <style scoped lang="scss">

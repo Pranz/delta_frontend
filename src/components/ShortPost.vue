@@ -1,10 +1,14 @@
 <template>
   <div id="container" align="center">
     <div id="shortpost">
-      <h2>{{title}}</h2>
+      <router-link :to="{ name: 'Post', params: { id: postId }}">
+        <h2>{{title}}</h2>
+       </router-link>
       <p>{{body}}</p>
-      <button id="readmore" v-on:click="ReadMore()">Läs mer...</button>
-      <DeltaButton postId="postId" userId="userId"></DeltaButton>
+      <router-link :to="{ name: 'Post', params: { id: postId }}">
+        <button id="readmore" v-on:click="ReadMore()">Läs mer...</button>
+       </router-link>
+      <DeltaButton :postId="postId" :userId="userId"></DeltaButton>
     </div>
   </div>
 </template>
@@ -48,4 +52,14 @@ export default {
   margin-right: 5px;
   margin-bottom: 10px;
 }
+
+h2:hover {
+  color: cornflowerblue;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 </style>
