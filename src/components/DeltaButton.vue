@@ -1,7 +1,12 @@
 <template>
   <span>
-    <span id="likeButton" v-on:click="Like()"><img src="@/assets/deltaSVG.svg" alt="delta" id="delta" width="20px"/></span>
-    <span id="likes">{{likes}}</span>
+    <span id="likeButton" v-on:click="Like()"><img src="@/assets/deltaSVG.svg" alt="delta" id="delta"/></span>
+    <span id="value">{{likes}}</span>
+    <span id="commentIcon"><img src="@/assets/commentSVG.svg" alt="comments" id="delta"/></span>
+    <span id="value">{{comments}}</span><br><br>
+    <div id="tags" v-for="tag in tags">
+      <span id="tag">{{tag}}</span>
+    </div>
   </span>
 </template>
 <script>
@@ -9,10 +14,12 @@ export default {
   name: 'DeltaButton',
   data () {
     return {
-      likes: this.deltas
+      likes: parseInt(16),
+      comments: parseInt(125),
+      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket', 'arbetspendling']
     }
   },
-  props: ['deltas', 'postId', 'userID'],
+  props: ['postId', 'userID'],
   methods: {
     Like: function () {
       this.likes++
@@ -31,14 +38,33 @@ export default {
   border-radius: 2px;
   padding: 2px;
   vertical-align: top;
+  width: 25px;
+  height: 25px;
 }
 #delta:hover {
   background: $dark-grey;
 }
 
-#likes {
+#value {
   padding-left: 4px;
   display: table-cell;
   vertical-align: middle;
+}
+
+#tags {
+  display: table-cell;
+  width: inherit;
+  word-wrap: normal;
+  margin-bottom: 5px;
+  float: left;
+  display: block;
+}
+
+#tag {
+  margin-right: 5px;
+  background-color: $warm-grey;
+  border-radius: 4px;
+  padding: 4px;
+  word-wrap: break-word;
 }
 </style>
