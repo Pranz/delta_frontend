@@ -6,7 +6,7 @@
         <label for="title">Titel</label><br>
         <input type="text" id="title" placeholder="Skriv en titel..." required v-model="title"/><br><br>
         <label for="body">Innehåll</label><br>
-        <textarea id="body" placeholder="Skriv ditt inlägg..." required></textarea><br><br>
+        <textarea id="body" placeholder="Skriv ditt inlägg..." v-model="body" required></textarea><br><br>
         <label for="body">Taggar</label><br>
         <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.space="addTag()" v-model="atag"/>
         <span id="addedTags">{{addedTags}}</span><br>
@@ -22,6 +22,7 @@
 
 <script>
 import InfoBubble from './InfoBubble.vue'
+import { makePost } from '../common/api'
 
 export default {
   name: 'MakePost',
@@ -45,12 +46,12 @@ export default {
       }
       this.atag = ''
     },
-    makePost: function () {
+    makePost: async function () {
       if (this.title.length === 0 || this.body.length === 0) {
         alert('Var vänlig fyll i titel och innehåll')
       } else {
-        var date = Date.now()
-        alert(this.title + ' ' + this.body + this.addedTags + date)
+        const response = await makePost()
+        this.$router.push({name: 'Post', params: {id: response.id}})
       }
     }
   }
