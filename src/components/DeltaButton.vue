@@ -109,7 +109,7 @@ export default {
   padding: 3px;
   margin: 5px;
 
-  background-color: $yellow-light;
+  background-color: $warm-grey;
   opacity: 0.7;
   border-radius: 5px;
 }
