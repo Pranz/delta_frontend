@@ -19,7 +19,7 @@ export default {
       tags: ['arbetspendling', 'miljöfrågor', 'trafikverket', 'arbetspendling']
     }
   },
-  props: ['postId', 'userID'],
+  props: ['postID', 'userID'],
   methods: {
     Like: function () {
       this.likes++
@@ -56,8 +56,8 @@ export default {
   width: inherit;
   word-wrap: normal;
   margin-bottom: 5px;
-  float: left;
   display: block;
+
 }
 
 #tag {
