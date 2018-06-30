@@ -112,6 +112,10 @@ textarea {}
   background-color: inherit;
 }
 
+.picker-post {
+  width: 600px;
+}
+
 .separator {
   width: 600px;
   height: 2px;
