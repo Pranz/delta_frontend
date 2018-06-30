@@ -2,38 +2,57 @@
   <div id="container" align="center">
   <div id="signup">
     <h1>Skapa konto</h1>
+    <h3 v-if="failureMsg">
+      {{failureMsg}}
+    </h3>
     <form>
       <label for="email">Email</label><br>
-      <input type="email" id="email" placeholder="exempel@delta.se" onfocus="this.placeholder = ''" onblur="this.placeholder = 'exempel@delta.se'"><br><br>
+      <input v-model="email" type="email" id="email" placeholder="exempel@delta.se"><br><br>
       <label for="username">Användarnamn</label><br>
-      <input type="text" id="username" placeholder="Användarnamn" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Användarnamn'"><br><br>
+      <input v-model="username" type="text" id="username" placeholder="Användarnamn"><br><br>
       <label for="psw">Lösenord</label><br>
-      <input type="password" placeholder="Lösenord" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Lösenord'" id="psw" required><br><br>
-      <input type="password" placeholder="Upprepa lösenord" id="confirm_psw" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Upprepa lösenord'" required><br><br>
-      <button type="submit" v-on:click="validatePassword()">Skapa konto</button><br>
+      <input v-model="pass" type="password" placeholder="Lösenord" id="psw" required><br><br>
+      <input v-model="confirmPass" type="password" placeholder="Upprepa lösenord" id="confirm_psw" required><br><br>
+      <button type="submit" v-on:click="createUser()">Skapa konto</button><br>
     </form>
   </div>
 </div>
 </template>
 
 <script>
-/* eslint-disable no-unused-vars */
+
+import { createUser } from '../common/api'
+
 export default {
   name: 'Signup',
+  data () {
+    return {
+      email: '',
+      username: '',
+      pass: '',
+      confirmPass: '',
+      failureMsg: null
+    }
+  },
   methods: {
-    validatePassword: function () {
-      var password = document.getElementById('psw')
-      var confirmPassword = document.getElementById('confirm_psw')
-      if (password.value !== confirmPassword.value) {
-        alert('Passwords dont match')
+    validatePassword: function (pass, confirmPass) {
+      if (pass !== confirmPass) {
+        this.failureMsg = 'Lösenorden matchar inte'
+        return false
       } else {
-        var email = document.getElementById('email')
-        alert('hej')
-        this.createUser(email, password)
+        return true
       }
     },
-    createUser: function (email, password) {
-      alert('create user')
+    createUser: async function () {
+      if (!this.validatePassword(this.pass, this.confirmPass)) {
+        return
+      }
+      try {
+        await createUser(this.email, this.username, this.pass)
+        this.$router.push('/login')
+      } catch (e) {
+        this.failureMsg = 'Kunde inte skapa användaren. Prova igen.'
+      }
     }
   }
 }
