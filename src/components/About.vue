@@ -2,8 +2,8 @@
   <div class="container" align="center">
     <div class="about"> Om oss </div>
     <div class="about-text">
-      Delta är ett initiativ att öka tillgängligheten på Svensk riksdags information.
-      Genom att förenkla disskution kring motioner och dokument hoppas vi kunna stärka
+      Delta är ett initiativ för att öka tillgängligheten av den svenska riksdagens information.
+      Genom att förenkla diskussion kring motioner och dokument hoppas vi kunna stärka
       det Svenska politiska deltagandet.
     </div>
     <div class="contact">

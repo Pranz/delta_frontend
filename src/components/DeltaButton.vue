@@ -6,8 +6,17 @@
         <div class="delta-like-value">{{likes}}</div>
       </div>
       <div class="delta-comment">
-        <div class="delta-comment-icon"><img src="@/assets/commentSVG.svg" height="15px" width="15px" alt="comments"/></div>
-        <div class="delta-comment-value">{{comments}}</div>
+        <div class="delta-comment-icon" v-on:click="toggleComm()"><img src="@/assets/commentSVG.svg" height="15px" width="15px" alt="comments"/></div>
+        <div class="delta-comment-value">{{NumbComments}}</div>
+      </div>
+      <div id="new-comment" v-if="toggleComment">
+        <textarea v-model="newcomment" v-on:keyup.enter="postComment()"></textarea>
+        <button type="submit" v-on:click="postComment()">Kommentera</button><br>
+        <div id="comments" v-for="comment in comments" :key="comment.id">
+          <h6>{{comment.userID}}</h6>
+          <p>{{comment.content}}</p>
+          <DeltaButton postID="comment.id" userID="comment.userID"></DeltaButton>
+        </div>
       </div>
     </div>
     <div class="delta-tags">
@@ -23,15 +32,49 @@ export default {
   data () {
     return {
       likes: parseInt(16),
-      comments: parseInt(125),
-      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket']
+      NumbComments: parseInt(125),
+      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket'],
+      toggleComment: false,
+      newcomment: '',
+      comments: [
+        {
+          userID: '123456',
+          id: '44444',
+          content: 'HejHej kommentar1 blabla'
+        },
+        {
+          userID: '3456',
+          id: '5555',
+          content: 'HejHej kommentar2 blabla'
+        }
+      ]
+    }
+  },
+  computed: {
+    user () {
+      return this.$store.state.user
     }
   },
   props: ['postID', 'userID'],
   methods: {
+    toggleComm: function () {
+      if (this.toggleComment === false) {
+        this.toggleComment = true
+      } else {
+        this.toggleComment = false
+      }
+    },
     Like: function () {
       this.likes++
       //  update database using id prop
+    },
+    postComment: function () {
+      if (this.newcomment.length !== 0) {
+        this.comments.unshift({userID: this.user, id: '345345', content: this.newcomment})
+        this.newcomment = ''
+      } else {
+
+      }
     }
   }
 }
@@ -117,6 +160,15 @@ export default {
 .delta-tag:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+
+#comments {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: $warm-grey;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 </style>

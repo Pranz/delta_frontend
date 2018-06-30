@@ -23,7 +23,6 @@
 
 <script>
 import InfoBubble from './InfoBubble.vue'
-import { makePost } from '../common/api'
 
 export default {
   name: 'MakePost',
@@ -47,14 +46,7 @@ export default {
       if (this.title.length === 0 || this.body.length === 0) {
         alert('Var vänlig fyll i titel och innehåll')
       } else {
-        const response = await makePost(this.$store.state.token, {
-          title: this.title,
-          content: {
-            body: this.body,
-            tags: this.tags
-          }
-        })
-        this.$router.push({name: 'Post', params: {id: response.data.id}})
+        this.$router.push({name: 'DetailedView', params: {id: '', title: this.title, body: this.body}})
       }
     }
   }
