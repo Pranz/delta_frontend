@@ -1,18 +1,22 @@
 <template>
-  <div class="makepost">
+  <div class="post-container">
     <h1>Skapa inlägg</h1><br>
-    <div class="form-con">
-      <form>
-        <label for="title">Titel</label><br>
-        <input type="text" id="title" placeholder="Skriv en titel..." required v-model="title"/><br><br>
-        <label for="body">Innehåll</label><br>
-        <textarea id="body" placeholder="Skriv ditt inlägg..." v-model="body" required></textarea><br><br>
-        <label for="body">Taggar</label><br>
-        <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.space="addTag()" v-model="atag"/>
-        <span id="addedTags">{{addedTags}}</span><br>
-        <div id="smallText">Var vänlig separera taggarna med mellanslag</div><br>
-        <button type="submit" v-on:click="makePost()">Publicera</button><br>
-      </form>
+    <div class="picker-post">
+        <div class="picker-title">
+          <label class="title-title">Titel</label>
+          <input type="text" class="title-input" placeholder="Skriv en titel..." required v-model="title"/><br><br>
+        </div>
+        <div class="picker-body">
+          <label class="title-body">Innehåll</label>
+          <textarea class="body-input" placeholder="Skriv ditt inlägg..." v-model="body" required></textarea><br><br>
+        </div>
+
+        <div class="picker-tags">
+          <label for="body">Taggar</label>
+          <input type="text" id="tags" placeholder="t.ex. miljö, undervisning" v-on:keyup.space="addTag()" v-model="atag"/>
+          <div class="added-tags">{{addedTags}}</div>
+        </div>
+        <button class="submit-button" type="submit" v-on:click="makePost()">Publicera</button>
       <InfoBubble message="Här kan du skapa egna inlägg om ämnen som du tycker är viktiga.
         Se till att du taggar ditt inlägg med relevanta taggar för att andra
         användare ska enklare kunna hitta ditt inlägg." visible="true"></InfoBubble>
@@ -64,49 +68,35 @@ export default {
 @import '@/styles/input.scss';
 @import '@/styles/typography.scss';
 
-.makepost {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  @include contained();
-  h1 {
-    margin: 0;
-  }
-  p {
-    font-weight: 400;
-  }
+.post-container, .picker-post, .picker-title, .picker-body, .picker-tags  {
+  display: flex;
+  flex-direction: column;
 }
 
-.form-con {
-  position: relative;
+.post-container {
+  padding: 20px;
 }
 
-input[type=text] {
-  color: $text-color;
-  font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  border-radius: 5px;
-  border-style:solid;
-  text-align: left;
-  background-color: #E3E3E3;
-  padding: 5px;
-  max-width: 500px;
-  margin: auto;
-}
-textarea {
-  color: $text-color;
-  font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  border-radius: 5px;
-  border-style:solid;
-  text-align: left;
-  padding: 5px;
-  background-color: #E3E3E3;
-  margin: auto;
-  min-width: 400px;
-  min-height: 300px;
+.title-input {
+  width: 300px;
+  height: 40px;
+  font-size: 30px;
+
+  border-radius: 4px;
 }
 
-#smallText {
-  font-size: 12px;
+.body-input {
+  height: 300px;
+  width: 600px;
 }
+
+.submit-button {
+  width: 150px;
+  margin-top: 10px;
+}
+
+
+
+
+
 </style>
