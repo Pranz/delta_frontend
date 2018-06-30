@@ -4,8 +4,8 @@
     <span id="value">{{likes}}</span>
     <span id="commentIcon"><img src="@/assets/commentSVG.svg" alt="comments" id="delta"/></span>
     <span id="value">{{comments}}</span><br><br>
-    <div id="tags" v-for="tag in tags">
-      <span id="tag">{{tag}}</span>
+    <div id="tags">
+      <span v-for="tag in tags" :key="tag" id="tag">{{tag}}</span>
     </div>
   </span>
 </template>
