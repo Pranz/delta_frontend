@@ -1,9 +1,9 @@
 <template>
-  <div id="container" align="center">
-    <div id="shortpost">
+  <div class="container" align="center">
+    <div class="shortpost">
       <h2>{{title}}</h2>
       <p>{{body}}</p>
-      <button id="readmore" v-on:click="ReadMore()">Läs mer...</button>
+      <button class="readmore" v-on:click="ReadMore()">Läs mer...</button>
       <DeltaButton postId="postId" userId="userId"></DeltaButton>
     </div>
   </div>
@@ -31,21 +31,21 @@ export default {
 @import '@/styles/color.scss';
 @import '@/styles/input.scss';
 
-#shortpost {
+.shortpost {
+  position: relative;
   text-align: left;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   border-radius: 5px;
-  padding-left: 1rem;
   background-color: transparentize(white, 0.4);
   border-style: solid;
   border-color: $warm-grey;
-  margin-right: 20px;
+  padding: 10px;
 }
 
-#readmore {
-  position: relative;
-  float: right;
-  margin-right: 5px;
-  margin-bottom: 10px;
+.readmore {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }
 </style>
