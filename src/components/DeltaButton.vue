@@ -16,7 +16,7 @@ export default {
     return {
       likes: parseInt(16),
       comments: parseInt(125),
-      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket', 'arbetspendling']
+      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket']
     }
   },
   props: ['postId', 'userID'],
