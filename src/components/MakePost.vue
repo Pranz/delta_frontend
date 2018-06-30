@@ -1,7 +1,7 @@
 <template>
   <div class="makepost">
     <h1>Skapa inlägg</h1><br>
-    <div id="container">
+    <div class="form-con">
       <form>
         <label for="title">Titel</label><br>
         <input type="text" id="title" placeholder="Skriv en titel..." required v-model="title"/><br><br>
@@ -68,8 +68,6 @@ export default {
   padding-top: 2rem;
   padding-bottom: 2rem;
   @include contained();
-  min-height: 50vh;
-  width: 100%;
   h1 {
     margin: 0;
   }
@@ -77,15 +75,9 @@ export default {
     font-weight: 400;
   }
 }
-#container {
-  display: flex;
-  position: absolute;
-  width: 80%;
-  padding-bottom: 2rem;
-}
 
-form {
-  float: left;
+.form-con {
+  position: relative;
 }
 
 input[type=text] {

@@ -1,5 +1,5 @@
 <template>
-  <div id="container" align="center">
+  <div class="container" align="center">
     <div class="about"> Om oss </div>
     <div class="about-text"> 
       Delta är ett initiativ att öka tillgängligheten på Svensk riksdags information. 
@@ -64,7 +64,7 @@ export default {
   opacity: 0.7;
 }
 
-#container {
+.container {
   vertical-align: bottom;
 }
 </style>
