@@ -1,5 +1,18 @@
 @import '@/styles/color.scss';
 
+textarea {
+  color: $text-color;
+  font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+  border-style: solid;
+  text-align: left;
+  padding: 5px;
+  background-color: $warm-grey;
+  margin: auto;
+  margin: inherit;
+  width: 100%;
+}
 
 button {
   display: inline-block;
@@ -10,12 +23,12 @@ button {
   text-decoration: none;
   border-radius: 100px;
   color: $text-color;
-  background-color: $green;
+  background-color: $light-turqoise;
   border-style: solid;
   border: none;
 }
 button:hover {
-  background-color: $dark-green;
+  background-color: $dark-turqoise;
 }
 
 form input {
