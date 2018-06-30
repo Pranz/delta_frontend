@@ -104,14 +104,6 @@ export default {
   flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
-#tags {
-  display: table-cell;
-  width: inherit;
-  word-wrap: normal;
-  margin-bottom: 5px;
-  display: inline-block;
-=======
 .delta-tag {
   width: auto;
   padding: 3px;
@@ -120,7 +112,6 @@ export default {
   background-color: $yellow-light;
   opacity: 0.7;
   border-radius: 5px;
->>>>>>> 2cf5023de7aa9d77f63fa56f4eb69a8d65e533f6
 }
 
 .delta-tag:hover {
@@ -129,4 +120,3 @@ export default {
 }
 
 </style>
-
