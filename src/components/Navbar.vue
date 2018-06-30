@@ -25,16 +25,14 @@
 <script>
 export default {
   name: 'Navbar',
-  data () {
-    return {
-      user: this.$cookie.get('user')
-    }
-  },
   methods: {
     logout () {
-      this.$cookie.delete('token')
-      this.$cookie.delete('user')
-      this.user = null
+      this.$store.commit('logout')
+    }
+  },
+  computed: {
+    user () {
+      return this.$store.state.user
     }
   }
 }

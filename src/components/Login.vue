@@ -44,9 +44,7 @@ export default {
       console.log(this.password)
       try {
         const response = await signIn(this.username, this.password)
-        console.log(response)
-        this.$cookie.set('token', response.data.token, 3)
-        this.$cookie.set('user', this.username, 3)
+        this.$store.commit('setUser', {user: this.username, token: response.data.token})
         this.$router.push('/')
       } catch (e) {
         this.failedLogin = true
