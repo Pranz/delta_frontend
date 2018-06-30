@@ -8,6 +8,7 @@ import MinaDiskussioner from '@/components/MinaDiskussioner.vue'
 import ShortPost from '@/components/ShortPost.vue'
 import About from '@/components/About.vue'
 import DetailedView from '@/components/DetailedView.vue'
+import Riksdag from '@/components/Riksdag.vue'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export default new Router({
       path: '/',
       name: 'Aktuellt',
       component: Aktuellt
+    },
+    {
+      path: '/riksdag',
+      name: 'Riksdag',
+      component: Riksdag
     },
     {
       path: '/login',

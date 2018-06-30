@@ -12,6 +12,7 @@
 <script>
 import DeltaButton from './DeltaButton.vue'
 import DetailedView from './DetailedView.vue'
+import { detailed } from '../common/api'
 
 export default {
   name: 'ShortPost',
