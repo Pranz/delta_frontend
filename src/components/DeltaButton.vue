@@ -1,13 +1,13 @@
 <template>
-  <span>
-    <span id="likeButton" v-on:click="Like()"><img src="@/assets/deltaSVG.svg" alt="delta" id="delta"/></span>
-    <span id="value">{{likes}}</span>
-    <span id="commentIcon"><img src="@/assets/commentSVG.svg" alt="comments" id="delta"/></span>
-    <span id="value">{{comments}}</span><br><br>
-    <div id="tags" v-bind:key="tag" v-for="tag in tags">
+  <div class="delta">
+    <div class="delta-like" v-on:click="Like()"><img src="@/assets/deltaSVG.svg" alt="delta"/></div>
+    <div class="delta-like-value">{{likes}}</div>
+    <div class="delta-comment"><img src="@/assets/commentSVG.svg" alt="comments"/></div>
+    <div class="delta-comment-value">{{comments}}</div>
+    <div class="tags" v-bind:key="tag" v-for="tag in tags">
       <span id="tag">{{tag}}</span>
     </div>
-  </span>
+  </div>
 </template>
 <script>
 export default {
