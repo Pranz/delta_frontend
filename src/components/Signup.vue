@@ -9,7 +9,7 @@
       <label for="email">Email</label><br>
       <input v-model="email" type="email" id="email" placeholder="exempel@delta.se"><br><br>
       <label for="username">Användarnamn</label><br>
-      <input v-model="user" type="text" id="username" placeholder="Användarnamn"><br><br>
+      <input v-model="username" type="text" id="username" placeholder="Användarnamn"><br><br>
       <label for="psw">Lösenord</label><br>
       <input v-model="pass" type="password" placeholder="Lösenord" id="psw" required><br><br>
       <input v-model="confirmPass" type="password" placeholder="Upprepa lösenord" id="confirm_psw" required><br><br>
