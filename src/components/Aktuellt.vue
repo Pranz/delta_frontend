@@ -51,7 +51,7 @@ export default {
   mounted () {
     axios
       .get('https://localhost:5000/posts')
-      .then(resp => resp.array.forEach(post => {
+      .then(resp => resp.data.forEach(post => {
         this.posts.push(post)
       }))
   }
