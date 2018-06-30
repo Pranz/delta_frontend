@@ -7,11 +7,10 @@ function makeUrl (path) {
   return apiBaseUrl + path
 }
 
-export async function makePost () {
-  return {
-    success: true,
-    id: 5
-  }
+export async function makePost (token, post) {
+  return axios.post(makeUrl('posts/create'), {
+    token, post
+  })
 }
 
 export async function getPost (id) {
