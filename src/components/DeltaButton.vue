@@ -56,8 +56,7 @@ export default {
   width: inherit;
   word-wrap: normal;
   margin-bottom: 5px;
-  display: block;
-
+  display: inline-block;
 }
 
 #tag {
