@@ -27,3 +27,8 @@ export async function signIn (user, password) {
 export async function createUser (email, user, password) {
   return axios.post(makeUrl('profile/create'), {user, password, email})
 }
+
+export async function searchDocs (params) {
+  params['utformat'] = 'json'
+  return axios.get('http://data.riksdagen.se/dokumentlista/', {params})
+}
