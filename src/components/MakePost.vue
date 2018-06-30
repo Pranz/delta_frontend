@@ -51,7 +51,7 @@ export default {
         alert('Var vänlig fyll i titel och innehåll')
       } else {
         const response = await makePost()
-        this.$router.push({name: 'Post', params: {id: response.id}})
+        this.$router.push({name: 'DetailedView', params: {id: response.id, title: this.title, body: this.body}})
       }
     }
   }
