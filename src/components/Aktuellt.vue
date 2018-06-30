@@ -21,24 +21,11 @@
 import axios from 'axios'
 import ShortPost from './ShortPost.vue'
 import DetailedView from './DetailedView.vue'
+import { sortBy } from 'lodash';
 
 // get short versions of posts from database with (id, title, body, tags)
 export default {
   name: 'Aktuellt',
-  data: function () {
-    return {
-      posts: [
-        {
-          id: '101',
-          title: 'En ny regional planering',
-          body: 'Regional planering innebär att kommunerna kan få utökat stöd och kompetens vid planering vilket framför allt de mindre kommunerna, varifrån arbetspendling ofta sker, har behov av. En regional översiktsplanering ska samtidigt fortfarande innebära att beslutanderätten ligger på kommunal nivå...',
-          motionsId: 'Motion 2017/18:4204',
-          author: 'Roger Hedlund och Mikael Eskilandersson (båda SD)',
-          tags: ['arbetspendling', 'regional']
-        }
-      ]
-    }
-  },
   components: {
     ShortPost,
     DetailedView
@@ -50,7 +37,7 @@ export default {
   },
   mounted () {
     axios
-      .get('https://localhost:5000/posts')
+      .get('http://6613c44c.ngrok.io/posts')
       .then(resp => resp.data.forEach(post => {
         this.posts.push(post)
       }))
