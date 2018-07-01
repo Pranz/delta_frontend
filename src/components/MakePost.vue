@@ -11,8 +11,12 @@
         </div>
         <div class="separator"> </div>
         <div class="picker-tags">
-          <input type="text" class="tags-input" placeholder="Tag" v-on:keyup.space="addTag()" v-model="atag"/>
-          <div class="added-tags">{{addedTags}}</div>
+          <input type="text" class="tags-input" placeholder="Tag" v-on:keyup="addTag" v-model="atag"/>
+          <div class="tags-display">
+            <div class="tag" v-bind:key="tag" v-for="tag in tags">
+              <div class="tagvalue">{{tag}}</div>
+            </div>
+          </div>
         </div>
         <div class="picker-submit">
           <button class="submit-button" type="submit" v-on:click="makePost()">Publicera</button>
@@ -37,15 +41,21 @@ export default {
     return {
       title: '',
       body: '',
-      tags: ''
+      tags: []
     }
   },
   computed: {
     completedTags () {
-      return this.tags.split(' ')
+      return this.tags
     }
   },
   methods: {
+    addTag: function (event) {
+      if (event.keyCode === 13) {
+        this.tags.push(this.atag)
+        this.atag = ''
+      }
+    },
     makePost: async function () {
       if (this.title.length === 0 || this.body.length === 0) {
         alert('Var vänlig fyll i titel och innehåll')
@@ -64,6 +74,29 @@ export default {
 @import '@/styles/typography.scss';
 
 textarea {}
+
+.tag {
+  width: auto;
+  padding: 3px;
+  margin: 5px;
+
+  background-color: $warm-grey;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+
+.tag:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.tags-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 3px;
+  flex-wrap: wrap;
+}
 
 .title {
   display: flex;
