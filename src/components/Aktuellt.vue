@@ -18,29 +18,39 @@
 </template>
 
 <script>
-import axios from 'axios'
 import ShortPost from './ShortPost.vue'
-import DetailedView from './DetailedView.vue'
-import { sortBy } from 'lodash';
+import { getLatest } from '../common/api'
 
 // get short versions of posts from database with (id, title, body, tags)
 export default {
   name: 'Aktuellt',
   components: {
-    ShortPost,
-    DetailedView
+    ShortPost
+  },
+  data () {
+    return {
+      loading: true,
+      posts: []
+    }
+  },
+  created () {
+    this.fetchData()
   },
   methods: {
+    async fetchData () {
+      try {
+        const response = await getLatest()
+        this.loading = false
+        response.data.feed.array.forEach(post =>
+          this.posts.push(post)
+        )
+      } catch (e) {
+        console.error(e)
+      }
+    },
     readMore: function (id) {
       alert(id)
     }
-  },
-  mounted () {
-    axios
-      .get('http://6613c44c.ngrok.io/posts')
-      .then(resp => resp.data.forEach(post => {
-        this.posts.push(post)
-      }))
   }
 }
 </script>

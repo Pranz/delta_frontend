@@ -2,7 +2,7 @@
   <div class="container" align="center">
     <div class="shortpost">
       <h2>{{title}}</h2>
-      <p>{{body}} ...<span class="readmore" v-on:click="ReadMore()">Läs mer</span></p>
+      <p>{{summary(body)}} ...<span class="readmore" v-on:click="ReadMore()">Läs mer</span></p>
       <DeltaButton postId="postId" userId="userId"></DeltaButton>
     </div>
   </div>
@@ -11,6 +11,7 @@
 <script>
 import DeltaButton from './DeltaButton.vue'
 import DetailedView from './DetailedView.vue'
+import { takeWhile } from 'lodash'
 
 export default {
   name: 'ShortPost',
@@ -21,6 +22,10 @@ export default {
   methods: {
     ReadMore: function () {
       this.$router.push({name: 'DetailedView', params: {id: '/', title: this.title, body: this.body}})
+    },
+    summary: function (text) {
+      const result = takeWhile(text, (c) => c !== '\n')
+      return result.substring(0, 77) + '...'
     }
   },
   props: ['title', 'body', 'postId', 'userId'],

@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 
-const apiBaseUrl = 'http://192.168.10.223:5000/'
+const apiBaseUrl = 'http://127.0.0.1:5000/'
 
 function makeUrl (path) {
   return apiBaseUrl + path
@@ -18,6 +18,19 @@ export async function getPost (id) {
     title: 'Yeah boiiiiiii',
     body: 'lorem ipsum knas man.'
   }
+}
+
+export async function getLatest () {
+  const time = new Date().toISOString().substring(0, 10)
+  return getFeed(10, time, null)
+}
+
+export async function getFeed (limit, time, tags) {
+  return axios.post(makeUrl('feed'), {
+    'limit': limit,
+    'date': time,
+    'tags': tags
+  })
 }
 
 export async function signIn (user, password) {
