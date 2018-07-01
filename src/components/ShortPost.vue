@@ -2,8 +2,7 @@
   <div class="container" align="center">
     <div class="shortpost">
       <h2>{{title}}</h2>
-      <p>{{body}}</p>
-      <button class="readmore" v-on:click="ReadMore()">Läs mer...</button>
+      <p>{{body}} ...<span class="readmore" v-on:click="ReadMore()">Läs mer</span></p>
       <DeltaButton postId="postId" userId="userId"></DeltaButton>
     </div>
   </div>
@@ -18,6 +17,11 @@ export default {
   components: {
     DeltaButton,
     DetailedView
+  },
+  methods: {
+    ReadMore: function () {
+      this.$router.push({name: 'DetailedView', params: {id: '/', title: this.title, body: this.body}})
+    }
   },
   props: ['title', 'body', 'postId', 'userId'],
   created: function () {
@@ -44,8 +48,9 @@ export default {
 }
 
 .readmore {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+  color: grey;
+}
+.readmore:hover {
+  text-decoration: underline;
 }
 </style>

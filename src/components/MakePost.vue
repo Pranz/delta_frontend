@@ -69,11 +69,8 @@ textarea {}
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-
   font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
-
   width: 600px;
-
 }
 
 .post-container, .picker-post, .picker-title, .picker-body, .picker-tags  {
@@ -167,21 +164,10 @@ textarea {}
   margin: 5px;
 }
 
-
 .info-bubble {
   position: fixed;
 
   right: 100px;
   left: 100px;
 }
-
-
-
-
-
-
-
-
-
-
 </style>

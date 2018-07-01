@@ -63,6 +63,8 @@ export default {
 }
 
 .container {
+  padding-top: 20px;
+  margin-top: 20px;
   vertical-align: bottom;
 }
 </style>
