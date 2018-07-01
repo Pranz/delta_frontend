@@ -40,7 +40,6 @@ export default {
     return {
       likes: parseInt(16),
       NumbComments: parseInt(125),
-      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket'],
       toggleComment: false,
       newcomment: '',
       comments: [
@@ -70,7 +69,7 @@ export default {
       return this.$store.state.user
     }
   },
-  props: ['postID', 'userID'],
+  props: ['postID', 'userID', 'tags'],
   methods: {
     toggleComm: function () {
       if (this.toggleComment === false) {

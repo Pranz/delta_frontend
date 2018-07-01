@@ -41,7 +41,8 @@ export default {
     return {
       title: '',
       body: '',
-      tags: []
+      tags: [],
+      atag: ''
     }
   },
   computed: {
@@ -51,7 +52,7 @@ export default {
   },
   methods: {
     addTag: function (event) {
-      if (event.keyCode === 13) {
+      if (event.keyCode === 13 || event.keyCode === 32) {
         this.tags.push(this.atag)
         this.atag = ''
       }
@@ -60,7 +61,7 @@ export default {
       if (this.title.length === 0 || this.body.length === 0) {
         alert('Var vänlig fyll i titel och innehåll')
       } else {
-        this.$router.push({name: 'DetailedView', params: {id: '', title: this.title, body: this.body}})
+        this.$router.push({name: 'DetailedView', params: {id: '', title: this.title, body: this.body, tags: this.tags}})
       }
     }
   }

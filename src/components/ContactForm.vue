@@ -40,8 +40,4 @@ export default {
   margin: auto;
   max-width: 400px;
 }
-
-#body {
-  margin-bottom: 20px;
-}
 </style>
