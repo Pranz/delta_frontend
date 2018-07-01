@@ -58,3 +58,7 @@ export async function getLikes (id, type) {
 export async function getTags (postId) {
   return axios.get(makeUrl('tags/' + postId))
 }
+
+export async function getComments (postId) {
+  return axios.get(makeUrl('comments/' + postId))
+}

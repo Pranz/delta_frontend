@@ -34,7 +34,7 @@
   </div>
 </template>
 <script>
-import { getLikes, getTags } from '../common/api'
+import { getLikes, getTags, getComments } from '../common/api'
 
 export default {
   name: 'DeltaButton',
@@ -97,8 +97,10 @@ export default {
       try {
         const respLikes = await getLikes(this.postID, 'post')
         const respTags = await getTags(this.postID)
+        const respComments = await getComments(this.postID)
         this.likes = respLikes.data.likes
         this.tags = respTags.data.tags
+        this.comments = respComments.data.comments
       } catch (e) {
         console.error(e)
       }
