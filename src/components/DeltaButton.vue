@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="new-comment" v-if="toggleComment">
-      <textarea v-model="newcomment" v-on:keyup.enter="postComment()"></textarea>
+      <textarea v-model="newcomment" placeholder="Skriv din kommentar..." autofocus v-on:keyup.enter="postComment()"></textarea>
       <button type="submit" v-on:click="postComment()">Kommentera</button><br>
       <div id="comments" v-for="comment in comments" :key="comment.id">
         <h6>{{comment.userID}}</h6>

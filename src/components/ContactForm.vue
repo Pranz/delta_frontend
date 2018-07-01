@@ -7,6 +7,7 @@
         <label for="email">Email</label><br>
         <input v-model="email" type="email" id="email" placeholder="exempel@delta.se" required><br><br>
         <textarea v-model="body" placeholder="Ditt meddelande" id="body" required></textarea>
+        <div class="separator"> </div>
         <button type="submit" v-on:click="sendMsg()">Skicka</button><br>
       </form>
     </div>
@@ -38,6 +39,18 @@ export default {
 #container {
   overflow:auto;
   margin: auto;
-  max-width: 400px;
+  width: 600px;
+}
+#email {
+  width: 400px;
+}
+#body {
+  width: 400px;
+}
+.separator {
+  width: 400px;
+  height: 2px;
+  background-color: grey;
+  margin-bottom: 20px;
 }
 </style>

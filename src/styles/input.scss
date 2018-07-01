@@ -3,12 +3,10 @@
 textarea {
   color: $text-color;
   font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  border-radius: 5px;
-  border-style: solid;
+  font-size: 16px;
+  border: none;
   text-align: left;
   padding: 5px;
-  background-color: $warm-grey;
   width: 100%;
   margin-bottom: 5px;
 }
@@ -33,10 +31,11 @@ button:hover {
 form input {
   color: $text-color;
   padding: 5px;
-  width: 300px;
+  width: inherit;
   height: 40px;
   font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
   border: none;
+  font-size: 16px;
   border-bottom: solid 2px grey;
   margin: 2px;
 }
