@@ -1,14 +1,9 @@
 <template>
-  <div id="container" align="center">
-    <div id="shortpost">
-      <router-link :to="{ name: 'Post', params: { id: postId }}">
-        <h2>{{title}}</h2>
-       </router-link>
-      <p>{{body}}</p>
-      <router-link :to="{ name: 'Post', params: { id: postId }}">
-        <button id="readmore" v-on:click="ReadMore()">Läs mer...</button>
-       </router-link>
-      <DeltaButton :postId="postId" :userId="userId"></DeltaButton>
+  <div class="container" align="center">
+    <div class="shortpost">
+      <h2>{{title}}</h2>
+      <p>{{body}} ...<span class="readmore" v-on:click="ReadMore()">Läs mer</span></p>
+      <DeltaButton postId="postId" userId="userId"></DeltaButton>
     </div>
   </div>
 </template>
@@ -23,6 +18,11 @@ export default {
     DeltaButton,
     DetailedView
   },
+  methods: {
+    ReadMore: function () {
+      this.$router.push({name: 'DetailedView', params: {id: '/', title: this.title, body: this.body}})
+    }
+  },
   props: ['title', 'body', 'postId', 'userId'],
   created: function () {
 
@@ -35,22 +35,23 @@ export default {
 @import '@/styles/color.scss';
 @import '@/styles/input.scss';
 
-#shortpost {
+.shortpost {
+  position: relative;
   text-align: left;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   border-radius: 5px;
-  padding-left: 1rem;
   background-color: transparentize(white, 0.4);
   border-style: solid;
   border-color: $warm-grey;
-  margin: 20px;
+  padding: 10px;
 }
 
-#readmore {
-  position: relative;
-  float: right;
-  margin-right: 5px;
-  margin-bottom: 10px;
+.readmore {
+  color: grey;
+}
+.readmore:hover {
+  text-decoration: underline;
 }
 
 h2:hover {

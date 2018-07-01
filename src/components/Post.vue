@@ -1,21 +1,45 @@
 <template>
-  <div id="container" align="center">
-  <div id="post">
-    hello wrold
+  <div class="post">
+    <h1>{{title}}</h1>
+    <p>
+      {{body}}
+    </p>
   </div>
-</div>
 </template>
+
 <script>
+import { getPost } from '../common/api'
+
 export default {
-  name: 'Post'
+  name: 'Post',
+  props: ['id'],
+  data () {
+    return {
+      loading: true,
+      body: '',
+      title: ''
+    }
+  },
+  created () {
+    this.fetchData()
+  },
+  methods: {
+    async fetchData () {
+      const response = await getPost(this.id)
+      console.log('bruh')
+      this.loading = false
+      this.body = response.body
+      this.title = response.title
+    }
+  }
 }
 </script>
-<style scoped lang="scss">
-@import '@/styles/mixins/positioning.scss';
-@import '@/styles/color.scss';
 
-#post {
-  text-align: left;
-  display: inline-block;
+<style lang="scss" scoped>
+@import '@/styles/mixins/positioning.scss';
+
+.post {
+  @include contained();
 }
+
 </style>

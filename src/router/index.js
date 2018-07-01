@@ -7,7 +7,8 @@ import MakePost from '@/components/MakePost.vue'
 import MinaDiskussioner from '@/components/MinaDiskussioner.vue'
 import ShortPost from '@/components/ShortPost.vue'
 import About from '@/components/About.vue'
-import Post from '@/components/Post.vue'
+import DetailedView from '@/components/DetailedView.vue'
+import Riksdag from '@/components/Riksdag.vue'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export default new Router({
       path: '/',
       name: 'Aktuellt',
       component: Aktuellt
+    },
+    {
+      path: '/riksdag',
+      name: 'Riksdag',
+      component: Riksdag
     },
     {
       path: '/login',
@@ -34,6 +40,12 @@ export default new Router({
       component: MakePost
     },
     {
+      path: '/detailedview/:id',
+      name: 'DetailedView',
+      component: DetailedView,
+      props: true
+    },
+    {
       path: '/minadiskussioner',
       name: 'MinaDiskussioner',
       component: MinaDiskussioner
@@ -42,11 +54,6 @@ export default new Router({
       path: '/shortpost',
       name: 'ShortPost',
       component: ShortPost
-    },
-    {
-      path: '/post/:id',
-      name: 'Post',
-      component: Post
     },
     {
       path: '/about',
