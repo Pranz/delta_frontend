@@ -21,7 +21,7 @@ button {
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  border-radius: 100px;
+  border-radius: 5px;
   color: $text-color;
   background-color: $light-turqoise;
   border-style: solid;
@@ -33,7 +33,7 @@ button:hover {
 
 form input {
   color: $text-color;
-  border-radius: 100px;
+  border-radius: 5px;
   border-style:solid;
   text-align: center;
   background-color: #E3E3E3;

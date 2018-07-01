@@ -10,7 +10,7 @@ import DeltaButton from '@/components/DeltaButton.vue'
 
 export default {
   name: 'Comment',
-  props: ['commentId', 'parentId', 'userId', 'postId', 'content'],
+  props: ['commentId', 'parentId', 'userId', 'content'],
   components: {
     DeltaButton
   }
