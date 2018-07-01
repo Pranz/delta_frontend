@@ -40,8 +40,8 @@ export default {
     return {
       likes: parseInt(16),
       NumbComments: parseInt(125),
-      toggleComment: false,
       newcomment: '',
+      toggleComment: false,
       comments: [
         {
           userID: '123456',
