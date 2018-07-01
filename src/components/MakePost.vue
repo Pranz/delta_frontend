@@ -82,7 +82,6 @@ textarea {}
 .post-container {
   padding: 8px;
   margin: 0% auto;
-
   left: 0;
   right: 0;
   max-width: 1024px;
@@ -92,7 +91,6 @@ textarea {}
   width: 300px;
   height: 40px;
   font-size: 30px;
-
   font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
   border: none;
   border-bottom: solid 2px grey;
