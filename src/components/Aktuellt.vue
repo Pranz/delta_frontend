@@ -5,9 +5,9 @@
       <div class="col1" v-for="post in posts" :key="post.id">
         <ShortPost
           :title="post.title"
-          :id="post.id"
+          :postID="post.id"
           :body="post.body"
-          :postId="post.id">
+          :userID="post.userID">
         </ShortPost>
       </div>
       <div class="col2">
@@ -41,9 +41,10 @@ export default {
       try {
         const response = await getLatest()
         this.loading = false
-        response.data.feed.array.forEach(post =>
+        response.data.feed.forEach(arr => {
+          const post = arr[3]
           this.posts.push(post)
-        )
+        })
       } catch (e) {
         console.error(e)
       }

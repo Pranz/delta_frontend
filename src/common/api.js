@@ -28,7 +28,7 @@ export async function getLatest () {
 export async function getFeed (limit, time, tags) {
   return axios.post(makeUrl('feed'), {
     'limit': limit,
-    'date': time,
+    'time': time,
     'tags': tags
   })
 }
@@ -44,4 +44,17 @@ export async function createUser (email, user, password) {
 export async function searchDocs (params) {
   params['utformat'] = 'json'
   return axios.get('http://data.riksdagen.se/dokumentlista/', {params})
+}
+
+export async function getLikes (id, type) {
+  return axios.get(makeUrl('likes', {
+    params: {
+      id: id,
+      type: type
+    }
+  }))
+}
+
+export async function getTags (postId) {
+  return axios.get(makeUrl('tags/' + postId))
 }
