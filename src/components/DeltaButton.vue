@@ -23,11 +23,12 @@
       <div id="comments" v-for="comment in comments" :key="comment.id">
         <h6>{{comment.userID}}</h6>
         <p>{{comment.content}}</p>
-        <div id="2ndlvlComment" v-for="comment in comment.comments" :key="comment.id">
+        <DeltaButton postID="comment.id" userID="comment.userID"></DeltaButton>
+        <div id="comments" v-for="comment in comment.comments" :key="comment.id">
           <h6>{{comment.userID}}</h6>
           <p>{{comment.content}}</p>
+          <DeltaButton postID="comment.id" userID="comment.userID"></DeltaButton>
         </div>
-        <DeltaButton postID="comment.id" userID="comment.userID"></DeltaButton>
       </div>
     </div>
   </div>
