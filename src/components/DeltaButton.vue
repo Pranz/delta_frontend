@@ -1,13 +1,37 @@
 <template>
-  <span>
-    <span id="likeButton" v-on:click="Like()"><img src="@/assets/deltaSVG.svg" alt="delta" id="delta"/></span>
-    <span id="value">{{likes}}</span>
-    <span id="commentIcon"><img src="@/assets/commentSVG.svg" alt="comments" id="delta"/></span>
-    <span id="value">{{comments}}</span><br><br>
-    <div id="tags" v-bind:key="tag" v-for="tag in tags">
-      <span id="tag">{{tag}}</span>
+  <div class="container">
+    <div class="delta">
+      <div class="delta-misc">
+        <div class="delta-like">
+          <div class="delta-like-icon" v-on:click="Like()"><img src="@/assets/deltaSVG.svg" height="15px" width="15px" alt="delta"/></div>
+          <div class="delta-like-value">{{likes}}</div>
+        </div>
+        <div class="delta-comment">
+          <div class="delta-comment-icon" v-on:click="toggleComm()"><img src="@/assets/commentSVG.svg" height="15px" width="15px" alt="comments"/></div>
+          <div class="delta-comment-value">{{NumbComments}}</div>
+        </div>
+      </div>
+      <div class="delta-tags">
+        <div class="delta-tag" v-bind:key="tag" v-for="tag in tags">
+          <div class="delta-tag-value">{{tag}}</div>
+        </div>
+      </div>
     </div>
-  </span>
+    <div class="new-comment" v-if="toggleComment">
+      <textarea v-model="newcomment" v-on:keyup.enter="postComment()"></textarea>
+      <button type="submit" v-on:click="postComment()">Kommentera</button><br>
+      <div id="comments" v-for="comment in comments" :key="comment.id">
+        <h6>{{comment.userID}}</h6>
+        <p>{{comment.content}}</p>
+        <DeltaButton postID="comment.id" userID="comment.userID"></DeltaButton>
+        <div id="comments" v-for="comment in comment.comments" :key="comment.id">
+          <h6>{{comment.userID}}</h6>
+          <p>{{comment.content}}</p>
+          <DeltaButton postID="comment.id" userID="comment.userID"></DeltaButton>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -15,15 +39,57 @@ export default {
   data () {
     return {
       likes: parseInt(16),
-      comments: parseInt(125),
-      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket']
+      NumbComments: parseInt(125),
+      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket'],
+      toggleComment: false,
+      newcomment: '',
+      comments: [
+        {
+          userID: '123456',
+          id: '44444',
+          content: 'HejHej kommentar1 blabla',
+          comments: [
+            {
+              userID: '356',
+              parentID: '0000',
+              id: '555',
+              content: 'Kommentar på en kommentar'
+            }
+          ]
+        },
+        {
+          userID: '3456',
+          id: '5555',
+          content: 'HejHej kommentar2 blabla'
+        }
+      ]
     }
   },
-  props: ['postId', 'userID'],
+  computed: {
+    user () {
+      return this.$store.state.user
+    }
+  },
+  props: ['postID', 'userID'],
   methods: {
+    toggleComm: function () {
+      if (this.toggleComment === false) {
+        this.toggleComment = true
+      } else {
+        this.toggleComment = false
+      }
+    },
     Like: function () {
       this.likes++
       //  update database using id prop
+    },
+    postComment: function () {
+      if (this.newcomment.length !== 0) {
+        this.comments.unshift({userID: this.user, id: '345345', content: this.newcomment})
+        this.newcomment = ''
+      } else {
+
+      }
     }
   }
 }
@@ -33,38 +99,102 @@ export default {
 @import '@/styles/color.scss';
 @import '@/styles/input.scss';
 
-#delta {
+.container {
+  width: 100%;
+}
+.delta {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.delta-misc {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+
+.delta-like-icon {
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+}
+
+.delta-like-icon:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.delta-like-value {
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+}
+
+.delta-like {
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+}
+
+.delta-comment {
+  width: 100px;
+  display:flex;
+  flex-direction: row;
+}
+
+.delta-comment-icon {
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+}
+
+.delta-comment-icon:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.delta-comment-value {
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+}
+
+.delta-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.delta-tag {
+  width: auto;
+  padding: 3px;
+  margin: 5px;
+
   background-color: $warm-grey;
-  border-radius: 2px;
-  padding: 2px;
-  vertical-align: top;
-  width: 25px;
-  height: 25px;
-}
-#delta:hover {
-  background: $dark-grey;
+  opacity: 0.7;
+  border-radius: 5px;
 }
 
-#value {
-  padding-left: 4px;
-  display: table-cell;
-  vertical-align: middle;
+.delta-tag:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 
-#tags {
-  display: table-cell;
-  width: inherit;
-  word-wrap: normal;
+#comments {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: $warm-grey;
+  padding: 10px;
+  margin-top: 5px;
   margin-bottom: 5px;
-  float: left;
-  display: block;
 }
 
-#tag {
-  margin-right: 5px;
-  background-color: $warm-grey;
-  border-radius: 4px;
-  padding: 4px;
-  word-wrap: break-word;
+#2ndlvlComment {
+  margin-left: 10px;
 }
 </style>

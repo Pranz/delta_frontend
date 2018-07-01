@@ -7,9 +7,9 @@ import MakePost from '@/components/MakePost.vue'
 import MinaDiskussioner from '@/components/MinaDiskussioner.vue'
 import ShortPost from '@/components/ShortPost.vue'
 import About from '@/components/About.vue'
+import DetailedView from '@/components/DetailedView.vue'
 import Riksdag from '@/components/Riksdag.vue'
 
-import Post from '@/components/Post.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -40,9 +40,9 @@ export default new Router({
       component: MakePost
     },
     {
-      path: '/post/:id',
-      name: 'Post',
-      component: Post,
+      path: '/detailedview/:id',
+      name: 'DetailedView',
+      component: DetailedView,
       props: true
     },
     {
