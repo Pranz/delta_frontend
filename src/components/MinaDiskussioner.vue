@@ -1,8 +1,8 @@
 <template>
   <div class="diskussioner">
     <h1>Mina Diskussioner</h1>
-
-    <ShortPost>Hej</ShortPost>
+    <p v-if="diskussioner.length === 0">Här kommer diskussioner som du har deltagit i att visas</p>
+    <ShortPost v-if="diskussioner.length !== 0"></ShortPost>
   </div>
 </template>
 
@@ -10,6 +10,11 @@
 import ShortPost from './ShortPost.vue'
 export default {
   name: 'MinaDiskussioner',
+  data () {
+    return {
+      diskussioner: []
+    }
+  },
   components: {
     ShortPost
   }
