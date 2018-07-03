@@ -7,13 +7,11 @@
       Misslyckades att logga in. Var vänlig försök igen.
     </h3>
     <form>
-      <label for="username">Användarnamn</label><br>
       <input v-model="username"
              type="text"
              id="username"
-             placeholder="Hodor"
+             placeholder="Användarnamn"
              required><br><br>
-      <label for="psw">Lösenord</label><br>
       <input v-model="password"
              type="password"
              placeholder="Lösenord"

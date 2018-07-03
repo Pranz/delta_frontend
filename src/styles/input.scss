@@ -3,15 +3,12 @@
 textarea {
   color: $text-color;
   font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  border-radius: 5px;
-  border-style: solid;
+  font-size: 16px;
+  border: none;
   text-align: left;
   padding: 5px;
-  background-color: $warm-grey;
-  margin: auto;
-  margin: inherit;
   width: 100%;
+  margin-bottom: 5px;
 }
 
 button {
@@ -21,7 +18,7 @@ button {
   font-size: 16px;
   text-align: center;
   text-decoration: none;
-  border-radius: 100px;
+  border-radius: 5px;
   color: $text-color;
   background-color: $light-turqoise;
   border-style: solid;
@@ -33,11 +30,12 @@ button:hover {
 
 form input {
   color: $text-color;
-  border-radius: 100px;
-  border-style:solid;
-  text-align: center;
-  background-color: #E3E3E3;
   padding: 5px;
-  max-width: 200px;
-  margin: auto;
+  width: inherit;
+  height: 40px;
+  font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
+  border: none;
+  font-size: 16px;
+  border-bottom: solid 2px grey;
+  margin: 2px;
 }

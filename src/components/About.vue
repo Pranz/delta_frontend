@@ -11,16 +11,21 @@
         <div class="contact-icon"> <img src="@/assets/vintage-telephone-call.svg" width="30px" height="30px" alt="Telephone missing."></div>
         <div class="contact-cell"> Telefon: 070 133 13 39</div>
       </div>
-      <div class="contact-field">
+      <div class="contact-field" v-on:click="contact()">
         <div class="contact-icon"> <img src="@/assets/envelope.svg" width="30px" height="30px" alt="Email missing."></div>
-        <div class="contact-cell"> Email: delta.snälla@demokrati.se </div>
+        <div class="contact-cell">Kontakta oss</div>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'About'
+  name: 'About',
+  methods: {
+    contact: function () {
+      this.$router.push({name: 'ContactForm', params: {title: this.title, body: this.body}})
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
@@ -31,7 +36,9 @@ export default {
   display: flex;
   flex-direction: row;
 }
-
+.contact-field:hover {
+  opacity: 0.5
+}
 .contact {
   justify-content: center;
 }

@@ -9,6 +9,7 @@ import ShortPost from '@/components/ShortPost.vue'
 import About from '@/components/About.vue'
 import DetailedView from '@/components/DetailedView.vue'
 import Riksdag from '@/components/Riksdag.vue'
+import ContactForm from '@/components/ContactForm.vue'
 
 Vue.use(Router)
 
@@ -59,6 +60,11 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: About
+    },
+    {
+      path: '/contact',
+      name: 'ContactForm',
+      component: ContactForm
     }
   ]
 })

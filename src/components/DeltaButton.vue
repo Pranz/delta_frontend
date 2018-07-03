@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="new-comment" v-if="toggleComment">
-      <textarea v-model="newcomment" v-on:keyup.enter="postComment()"></textarea>
+      <textarea v-model="newcomment" placeholder="Skriv din kommentar..." autofocus v-on:keyup.enter="postComment()"></textarea>
       <button type="submit" v-on:click="postComment()">Kommentera</button><br>
       <div id="comments" v-for="comment in comments" :key="comment.id">
         <h6>{{comment.userID}}</h6>
@@ -42,9 +42,8 @@ export default {
     return {
       likes: parseInt(16),
       NumbComments: parseInt(125),
-      tags: ['arbetspendling', 'miljöfrågor', 'trafikverket'],
-      toggleComment: false,
       newcomment: '',
+      toggleComment: false,
       comments: [
         {
           userID: '123456',
@@ -72,7 +71,7 @@ export default {
       return this.$store.state.user
     }
   },
-  props: ['postID', 'userID'],
+  props: ['postID', 'userID', 'tags'],
   methods: {
     toggleComm: function () {
       if (this.toggleComment === false) {

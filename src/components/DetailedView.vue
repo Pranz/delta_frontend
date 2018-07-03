@@ -35,6 +35,7 @@ export default {
 #detailed {
   margin: 20px;
   padding-left: 10px;
+  max-width: 800px;
 }
 
 </style>
