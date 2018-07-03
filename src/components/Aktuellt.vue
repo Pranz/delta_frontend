@@ -3,44 +3,52 @@
     <h1>Nya motioner och förslag</h1><br>
     <div class="row">
       <div class="col1" v-for="post in posts" :key="post.id">
-        <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost><br>
-        <ShortPost :title="post.title" :id="post.id" :body="post.body"></ShortPost><br>
+        <ShortPost
+          :title="post.title"
+          :postID="post.id"
+          :body="post.body"
+          :userID="post.userID">
+        </ShortPost>
       </div>
       <div class="col2">
         <div class="box" id="box" v-if="false"></div>
       </div>
     </div>
-
   </div>
-
 </template>
 
 <script>
 import ShortPost from './ShortPost.vue'
-import DetailedView from './DetailedView.vue'
+import { getLatest } from '../common/api'
 
 // get short versions of posts from database with (id, title, body, tags)
 export default {
   name: 'Aktuellt',
-  data: function () {
+  components: {
+    ShortPost
+  },
+  data () {
     return {
-      posts: [
-        {
-          id: '101',
-          title: 'med anledning av prop. 2017/18:266 En ny regional planering',
-          body: 'Regional planering innebär att kommunerna kan få utökat stöd och kompetens vid planering vilket framför allt de mindre kommunerna, varifrån arbetspendling ofta sker, har behov av. En regional översiktsplanering ska samtidigt fortfarande innebära att beslutanderätten ligger på kommunal nivå',
-          motionsId: 'Motion 2017/18:4204',
-          author: 'Roger Hedlund och Mikael Eskilandersson (båda SD)',
-          tags: ['arbetspendling', 'regional']
-        }
-      ]
+      loading: true,
+      posts: []
     }
   },
-  components: {
-    ShortPost,
-    DetailedView
+  created () {
+    this.fetchData()
   },
   methods: {
+    async fetchData () {
+      try {
+        const response = await getLatest()
+        this.loading = false
+        response.data.feed.forEach(arr => {
+          const post = arr[3]
+          this.posts.push(post)
+        })
+      } catch (e) {
+        console.error(e)
+      }
+    },
     readMore: function (id) {
       alert(id)
     }
